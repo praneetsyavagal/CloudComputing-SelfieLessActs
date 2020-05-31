@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+.fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.w3-half {
+  border: 2px solid red;
+  border-radius: 4px;
+  margin-left:270px;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+
+</style>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Community Services</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>{{category}}</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+  {% for i in range(leng) %}
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <img src="{{ url_for('static', filename='uploads/' + image_list[i]) }}" width="500" height="300" onclick="onClick(this)" alt="{{content_list[i]}}">
+      <p> Number of upvotes: {{likes_list[i].count()}} </p>
+        
+      {% if current_user.has_liked_post(post[i]) %}
+      <form action="{{ url_for('like_action', post_id=id_list[i], action='unlike') }}"><input class="btn btn-danger" type="submit" value="Unlike"></form>
+      {% else %}
+      <form action="{{ url_for('like_action', post_id=id_list[i], action='like') }}"><input class="btn btn-danger" type="submit" value="Like"></form>
+      {% endif %}
+
+      
+      
+      <form action="{{ url_for('delete_post', post_id=id_list[i]) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+      </form>
+        
+
+
+  </div>
+  {% endfor %}    
+  
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+
+{% endblock content %}
