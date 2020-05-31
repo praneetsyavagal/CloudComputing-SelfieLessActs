@@ -1,0 +1,137 @@
+body{
+	margin:0;
+	padding: 0;
+	background: url(../../images/cool-Burma-collage-1080x675.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	font-family: sans-serif;
+}
+.title{
+	font-family: 'Righteous', cursive;
+	background: rgba(255, 255, 255,0.9);
+	width: 100%;
+	font-size: 40px;
+	text-align: center;
+}
+.panel{
+	border: px;
+	background: rgba(255, 255, 255,0.75);
+	color: :#abcdef;
+	text-align: center;
+	padding-top: 70px;
+	padding-bottom: 20px;
+	position: relative;
+	transition: 1s;
+	position: relative;
+	align-content: center;
+	align-items: center;
+	align-self: center;
+	left:100%;
+	right: 100%;
+	bottom: 0%;
+	top:0%;
+}
+h4{
+	margin:0;
+	padding:0;
+	color:#000000;
+}
+.form-group{
+	margin:20px;
+}
+span{
+	width:40px;
+	height: 40px;
+	line-height: 40px;
+	background: #fff;
+	display: inline-block;
+	text-align: center;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px; 
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	margin-left: 10px;
+	-webkit-box-shadow: -10px 10px 10px rgba(0,0,0,0.5);
+	box-shadow: -10px 10px 10px rgba(0,0,0,0.5);
+}
+hr{
+	color: black;
+}
+.fa-facebook{
+	color: #3B5998;
+}
+.fa-twitter{
+	color: #1DA1F2;
+}
+.fa-google-plus{
+	color:red;
+}
+.lock{
+	position: absolute;
+	top:-50px;
+	width: 100px;
+	height: 100px;
+	line-height: 112px;
+	text-align: center;
+	background: linear-gradient(DarkSlateGray,Cyan);
+	background: -webkit-linear-gradient(DarkSlateGray,Cyan);
+	background: -moz-linear-gradient(DarkSlateGray,Cyan);
+	border:3px outset #F4E10A;
+	left:37%;
+	-webkit-border-radius:100%;
+	-moz-border-radius:100%; 
+	-ms-border-radius:100%;
+	-o-border-radius:100%;
+	border-radius:100%; 
+	color: white;
+	-webkit-box-shadow:-10px 10px 20px rgba(0,0,0,0.5);
+	box-shadow: -10px 10px 20px rgba(0,0,0,0.5);
+}
+.panel:hover{
+	background:rgba(255, 255, 255,0.9);
+}
+.label{
+	position: absolute;
+	top: 10px;
+	left: -20px;
+	width: 130px;
+	height: 35px;
+	line-height: 40px;
+	color: #ffffff;
+	transform: rotate(-20deg);
+	background:#E419B7;
+	-webkit-box-shadow:3px 3px 3px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+
+}
+.label2{
+	position: absolute;
+	top: 0px;
+	left: -18px;
+	width: 130px;
+	height: 35px;
+	line-height: 40px;
+	color: #fff;
+	transform: rotate(-27deg);
+	background:red;
+	z-index:-1;
+}
+.btn-success{
+	border: 0px;
+	border-radius: 0px;
+}
+.signup:visited{
+	color:black;
+}
+.signup:link{
+	color:black;
+}
+.signup:active{
+	color:black;
+}
+.signup:hover{
+	color:black;
+	text-decoration: underline;
+}

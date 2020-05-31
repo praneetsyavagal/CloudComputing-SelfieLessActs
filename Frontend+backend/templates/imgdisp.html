@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="title"></title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="gallery-clean.css">
+     <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Righteous|Shadows+Into+Light" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+  a:link{
+  color:black;
+}
+a:visited{
+  color:black;
+}
+.col-sm-2{
+    
+    font-size:30px;
+    
+  }
+img {
+  border-radius: 8px;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+{% if session['username'] %}
+<div style="background-color: black;">
+  <div align="center" class="row">
+    <div class="col-sm-3"><a href="" style="color: gray; font-family: 'Righteous', cursive;font-size: 40px;">SelfieLess Acts</a></div>
+    <div class="col-sm-2"><a href="/homepage" style="color: white">Home</a></div>
+    <div class="col-sm-2"><a href="/uploadpage" style="color: white" id="upload">Upload</a></div>
+    <div class="col-sm-2"><a href="/categoriespage"style="color: white" id="cat">Categories</a></div>
+    <div class="col-sm-2"><a href="/contact" style="color: white">Contact</a></div>
+    <div class="col-sm-1"><a href="/logout" class="btn navbar-btn btn-danger" style="color: white" id="login">Logout</a></div>
+  </div>
+</div>
+
+<h2 align="center" id="h2"></h2>
+<div class="container gallery-container" id="container">    
+    <div class="tz-gallery">
+        <div class="row">
+        	{% for dict in reply %}
+	            <div class="col-sm-6" style="border:1px solid gray;height:400px;overflow:auto;">
+	                	Post By-{{dict['username']}}<br>
+	                    <img src="data:image/png;base64,{{dict['imgB64']}}" alt="Image" style="height: auto">
+	                    <div id='upvote' class="col-sm-2" style="width: 20%;float: left; border-radius: 0%">{{dict['upvotes']}}</div>
+	                    <input type="button" id="{{dict['timestamp']}}" onclick="loadDoc(this)" class="btn btn-success btn-lg" value="Upvote" style="width: 40%; border-radius: 0%"></a>
+	                    {% if(dict['username']==session['username'])%}
+	                    <form action='/delete' method="POST" style="width: 40%; float: right; border-radius: 0%">
+	                    	<input type="input" name="deleteid" value="{{dict['timestamp']}}" hidden="true">
+	                    	<input type="input" name="user" value="{{dict['username']}}" hidden="true">
+	                    	<input type="submit" class="btn btn-danger btn-lg" value="Delete" style="width: 100%;border-radius: 0%" >
+	                	</form>
+	                    {%else%}
+	                    <br>
+	                    {%endif%}
+	                	{{dict['timestamp']}}
+	                        <p>{{ dict['caption'] }}</p>	
+	            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+<h3>Invalid page.</h3>
+<h3><a href='/homepage'>Click here to go back to home.</a></h3>
+{% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+</body>
+</html>
+<script>
+function loadDoc(self) {
+  myid=self.id
+  a=self.previousSibling.previousSibling
+  a.innerHTML=parseInt(a.innerHTML)+1;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {};
+  xhttp.open("POST", "http://localhost:5000/upvote/"+myid, true);
+  var x=xhttp.send();
+  console.log(x);
+}
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>SelfieLess Acts|Categories</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Righteous|Shadows+Into+Light" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <style type="text/css">
+ .col-sm-2{    
+    font-size:30px;    
+  }
+.title{
+  font-family: 'Righteous', cursive;
+  background: rgba(255, 255, 255,0.9);
+  width: 100%;
+  font-size: 40px;
+  text-align: left;
+}
+a:link{
+  color:black;
+}
+a:visited{
+  color:black;
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;     
+}
+   a:link{
+  color:black;
+}
+a:visited{
+  color:black;
+}
+ </style>
+</head>
+<script type="text/javascript">
+</script>
+<body style="background:url('images/bg.jpg');background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;">
+{% if session['username'] %}
+<div style="background-color: black;">
+  <div align="center" class="row">
+    <div class="col-sm-3"><a href="" style="color: gray; font-family: 'Righteous', cursive;font-size: 40px;">SelfieLess Acts</a></div>
+    <div class="col-sm-2"><a href="/homepage" style="color: white">Home</a></div>
+    <div class="col-sm-2"><a href="/uploadpage" style="color: white" id="upload">Upload</a></div>
+    <div class="col-sm-2"><a href="/categoriespage"style="color: white" id="cat">Categories</a></div>
+    <div class="col-sm-2"><a href="/contact" style="color: white">Contact</a></div>
+    <div class="col-sm-1"><a href="/logout" class="btn navbar-btn btn-danger" style="color: white" id="login">Logout</a></div>
+  </div>
+</div>
+
+	<div style="background: silver; text-align: center;width:50%; margin-left:25%; margin-right: 25%;margin-bottom:25%; padding-bottom: 1%">
+		<h3 style="padding-top: 1%"><b><u>Your Categories</u></b></h3><br>
+		<ul class="list-group" style="padding-left: 1%; padding-right: 1%" >
+ 			<li class="list-group-item"><a href="/imgdisp/Home">Home</a></li>
+      <li class="list-group-item"><a href="/imgdisp/School">School</a></li>
+      <li class="list-group-item"><a href="/imgdisp/Office">Office</a></li>
+      <li class="list-group-item"><a href="/imgdisp/Hospital">Hospital</a></li>
+      <li class="list-group-item"><a href="/imgdisp/Marathon">Marathon</a></li>
+		</ul> 
+{% else %}
+<h3>Invalid page.</h3>
+<h3><a href='/homepage'>Click here to go back to home.</a></h3>
+{% endif %}
+</body>
+</html>

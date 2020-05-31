@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SelfieLessActs|Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Righteous|Shadows+Into+Light" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript"></script>
+  <style>
+.col-sm-2{    
+    font-size:30px;    
+  }
+.title{
+	font-family: 'Righteous', cursive;
+	background: rgba(255, 255, 255,0.9);
+	width: 100%;
+	font-size: 40px;
+	text-align: left;
+}
+a:link{
+	color:black;
+}
+a:visited{
+	color:black;
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;     
+}
+
+  </style>
+</head>
+<body>
+{% if session['username'] %}
+<div style="background-color: black;">
+  <div align="center" class="row">
+    <div class="col-sm-3"><a href="" style="color: gray; font-family: 'Righteous', cursive;font-size: 40px;">SelfieLess Acts</a></div>
+    <div class="col-sm-2"><a href="/homepage" style="color: white">Home</a></div>
+    <div class="col-sm-2"><a href="/uploadpage" style="color: white" id="upload">Upload</a></div>
+    <div class="col-sm-2"><a href="/categoriespage"style="color: white" id="cat">Categories</a></div>
+    <div class="col-sm-2"><a href="/contact" style="color: white">Contact</a></div>
+    <div class="col-sm-1"><a href="/logout" class="btn navbar-btn btn-danger" style="color: white" id="login">Logout</a></div>
+  </div>
+</div>
+{% else %}
+<div style="background-color: black;">
+  <div align="center" class="row">
+    <div class="col-sm-3"><a href="" style="color: gray; font-family: 'Righteous', cursive;font-size: 40px;">SelfieLess Acts</a></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"><a href="/homepage" style="color: white">Home</a></div>
+    <div class="col-sm-2"><a href="/contact" style="color: white">Contact</a></div>
+    <div class="col-sm-1"><a href="/loginpage" class="btn navbar-btn btn-success" style="color: white" id="login">Login/SignUp</a></div>
+  </div>
+</div>
+{% endif %}
+<center>
+	<div class="container" style="margin-top: 120px">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default" style='font-family: "Times New Roman";font-size:20px'>
+					<div><br>Contact Us:<br><br>
+			prajwal.m.nadagouda@gmail.com<br>
+			preethishchandra@gmail.com<br>
+			impuneeth.pk@gmail.com<br>	
+			upadhyapreetham@gmail.com<br><br></div>
+				</div><!-- panel default-->
+			</div><!-- col md4-->
+		</div><!-- row-->
+	</div><!-- container-->
+</center>
+</body>
+</html>
